@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_note_app/views/widgets/custom_app_bar.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_note_app/views/widgets/nots_list_view.dart';
 
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({super.key});
@@ -10,53 +10,11 @@ class NotesViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
-        children: [SizedBox(height: 50), const CustomAppBar(), NoteItem()],
-      ),
-    );
-  }
-}
-
-class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 24, bottom: 24, left: 16),
-      decoration: BoxDecoration(
-        color: Colors.amber,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          ListTile(
-            title: Text(
-              'Flutter tips',
-              style: TextStyle(color: Colors.black, fontSize: 26),
-            ),
-            subtitle: Padding(
-              padding: const EdgeInsets.only(top: 16, bottom: 16),
-              child: Text(
-                'build your carear with nooraldeen',
-                style: TextStyle(
-                  color: Colors.black.withValues(alpha: 0.7),
-                  fontSize: 20,
-                ),
-              ),
-            ),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: Icon(FontAwesomeIcons.trash, color: Colors.black, size: 30),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 24),
-            child: Text(
-              'May21 , 2022',
-              style: TextStyle(color: Colors.black, fontSize: 14),
-            ),
-          ),
+          SizedBox(height: 50),
+          const CustomAppBar(),
+
+          Expanded(child: NotesListView()),
         ],
       ),
     );
